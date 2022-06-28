@@ -39,13 +39,14 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
         tableView.dataSource = self
         tableView.delegate = self
         tableView.backgroundColor = .systemBackground
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")// register correctly!!!
+        tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: CustomTableViewCell.identifier)// register correctly!!!
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.frame = view.bounds
+        tableView.rowHeight = CustomTableViewCell.rowHeight
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.identifier, for: indexPath)
         return cell
     }
     
